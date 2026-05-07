@@ -1,0 +1,35 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" rx="42" fill="url(#bg)"/>
+  <circle cx="96" cy="96" r="62" fill="url(#halo)" opacity="0.55"/>
+  <g filter="url(#softShadow)">
+    <path d="M96 31.2L113.88 72.12L158.28 76.32L124.8 105.84L134.64 149.4L96 126.84L57.36 149.4L67.2 105.84L33.72 76.32L78.12 72.12L96 31.2Z" fill="url(#star)"/>
+    <path d="M96 31.2L113.88 72.12L158.28 76.32L124.8 105.84L134.64 149.4L96 126.84L57.36 149.4L67.2 105.84L33.72 76.32L78.12 72.12L96 31.2Z" stroke="url(#edge)" stroke-width="6.3" stroke-linejoin="round"/>
+  </g>
+  <path d="M96 46.2L108.9 75.9L141 78.9L116.88 100.2L123.96 131.64L96 115.32L68.04 131.64L75.12 100.2L51 78.9L83.1 75.9L96 46.2Z" fill="url(#shine)" opacity="0.34"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="192" y2="192" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7D6"/>
+      <stop offset="1" stop-color="#FFE0A3"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(96 92) rotate(90) scale(68)">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="star" x1="60" y1="42" x2="138" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD84D"/>
+      <stop offset="0.48" stop-color="#FFAA1F"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="54" y1="36" x2="144" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF0A6"/>
+      <stop offset="1" stop-color="#D95A00"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(78 60) rotate(52) scale(78 72)">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="22" y="25" width="148" height="136" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="7" stdDeviation="6.5" flood-color="#A64500" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+</svg>

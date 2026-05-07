@@ -1,0 +1,35 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="166" fill="url(#halo)" opacity="0.55"/>
+  <g filter="url(#softShadow)">
+    <path d="M256 83.2L303.68 192.32L422.08 203.52L332.8 282.24L359.04 398.4L256 338.24L152.96 398.4L179.2 282.24L89.92 203.52L208.32 192.32L256 83.2Z" fill="url(#star)"/>
+    <path d="M256 83.2L303.68 192.32L422.08 203.52L332.8 282.24L359.04 398.4L256 338.24L152.96 398.4L179.2 282.24L89.92 203.52L208.32 192.32L256 83.2Z" stroke="url(#edge)" stroke-width="16.8" stroke-linejoin="round"/>
+  </g>
+  <path d="M256 123.2L290.4 202.4L376 210.4L311.68 267.2L330.56 351.04L256 307.52L181.44 351.04L200.32 267.2L136 210.4L221.6 202.4L256 123.2Z" fill="url(#shine)" opacity="0.34"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7D6"/>
+      <stop offset="1" stop-color="#FFE0A3"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 245) rotate(90) scale(181)">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="star" x1="160" y1="112" x2="368" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD84D"/>
+      <stop offset="0.48" stop-color="#FFAA1F"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="144" y1="96" x2="384" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF0A6"/>
+      <stop offset="1" stop-color="#D95A00"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(208 160) rotate(52) scale(208 192)">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="59" y="67" width="394" height="362" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="19" stdDeviation="17" flood-color="#A64500" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+</svg>
