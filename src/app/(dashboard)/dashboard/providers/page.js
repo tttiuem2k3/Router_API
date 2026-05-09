@@ -280,52 +280,8 @@ export default function ProvidersPage() {
     apikeyEntries.length > 0 ||
     compatibleProviders.length > 0 ||
     anthropicCompatibleProviders.length > 0;
-  const totalConnections = connections.length;
-  const activeConnections = connections.filter((c) => c.isActive !== false).length;
-  const connectedConnections = connections.filter((c) =>
-    ["active", "success"].includes(c.testStatus),
-  ).length;
-  const errorConnections = connections.filter((c) =>
-    ["error", "expired", "unavailable"].includes(c.testStatus),
-  ).length;
-
   return (
-    <div className="dashboard-page page-rise flex min-w-0 flex-col gap-7 px-1 sm:px-0">
-      <section className="dashboard-hero p-5 sm:p-7">
-        <div className="flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between">
-          <div className="max-w-2xl">
-            <span className="hero-kicker">
-              <span className="material-symbols-outlined text-[15px]">electrical_services</span>
-              Provider mesh
-            </span>
-            <h1 className="mt-4 text-2xl font-semibold tracking-tight text-text-main sm:text-3xl">
-              Route across premium, free, and compatible providers with confidence.
-            </h1>
-            <p className="mt-3 text-sm leading-6 text-text-muted sm:text-base">
-              Monitor account health, quickly test provider groups, and keep your model supply chain clean from one polished control plane.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 xl:min-w-[520px]">
-            <div className="hero-stat">
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-text-muted">Total</p>
-              <p className="mt-1 text-lg font-semibold text-text-main">{totalConnections}</p>
-            </div>
-            <div className="hero-stat">
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-text-muted">Active</p>
-              <p className="mt-1 text-lg font-semibold text-text-main">{activeConnections}</p>
-            </div>
-            <div className="hero-stat">
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-text-muted">Healthy</p>
-              <p className="mt-1 text-lg font-semibold text-text-main">{connectedConnections}</p>
-            </div>
-            <div className="hero-stat">
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-text-muted">Needs care</p>
-              <p className="mt-1 text-lg font-semibold text-text-main">{errorConnections}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <div className="dashboard-page page-rise flex min-w-0 flex-col gap-7 px-1 py-4 sm:px-0">
       {!hasAnyResult && (
         <div className="dashboard-panel flex flex-col items-center justify-center gap-2 border border-dashed border-border py-10 text-center">
           <span className="material-symbols-outlined text-[32px] text-text-muted mb-2">
@@ -347,10 +303,10 @@ export default function ProvidersPage() {
             <button
               onClick={() => handleBatchTest("oauth")}
               disabled={!!testingMode}
-              className={`flex w-full items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition-colors sm:w-auto sm:py-1.5 ${
+              className={`provider-test-button w-full sm:w-auto ${
                 testingMode === "oauth"
-                  ? "bg-primary/20 border-primary/40 text-primary animate-pulse"
-                  : "bg-bg border-border text-text-muted hover:text-text-main hover:border-primary/40"
+                  ? "provider-test-button--active animate-pulse"
+                  : ""
               }`}
               title="Test all OAuth connections"
               aria-label="Test all OAuth connections"
@@ -389,10 +345,10 @@ export default function ProvidersPage() {
           <button
             onClick={() => handleBatchTest("free")}
             disabled={!!testingMode}
-            className={`flex w-full items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition-colors sm:w-auto sm:py-1.5 ${
+            className={`provider-test-button w-full sm:w-auto ${
               testingMode === "free"
-                ? "bg-primary/20 border-primary/40 text-primary animate-pulse"
-                : "bg-bg border-border text-text-muted hover:text-text-main hover:border-primary/40"
+                ? "provider-test-button--active animate-pulse"
+                : ""
             }`}
             title="Test all Free connections"
             aria-label="Test all Free provider connections"
@@ -440,10 +396,10 @@ export default function ProvidersPage() {
           <button
             onClick={() => handleBatchTest("apikey")}
             disabled={!!testingMode}
-            className={`flex w-full items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition-colors sm:w-auto sm:py-1.5 ${
+            className={`provider-test-button w-full sm:w-auto ${
               testingMode === "apikey"
-                ? "bg-primary/20 border-primary/40 text-primary animate-pulse"
-                : "bg-bg border-border text-text-muted hover:text-text-main hover:border-primary/40"
+                ? "provider-test-button--active animate-pulse"
+                : ""
             }`}
             title="Test all API Key connections"
             aria-label="Test all API Key connections"

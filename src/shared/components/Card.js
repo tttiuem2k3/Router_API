@@ -25,9 +25,9 @@ export default function Card({
   return (
     <div
       className={cn(
-        "dashboard-panel gradient-ring group/card",
-        elev ? "rounded-[12px] shadow-[var(--shadow-elev)]" : "rounded-[12px] shadow-[var(--shadow-elev)]",
-        hover && "hover:-translate-y-0.5 hover:shadow-[0_22px_42px_-22px_rgba(23,105,255,0.36)] hover:border-brand-500/25 transition-all duration-200 cursor-pointer",
+        "dashboard-panel group/card",
+        elev ? "rounded-lg shadow-[var(--shadow-soft)]" : "rounded-lg shadow-[var(--shadow-soft)]",
+        hover && "hover:-translate-y-0.5 hover:border-brand-500/30 hover:shadow-[var(--shadow-glow)] transition-all duration-200 cursor-pointer",
         paddings[padding],
         className
       )}
@@ -37,7 +37,7 @@ export default function Card({
         <div className="mb-5 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             {icon && (
-              <div className="flex size-10 items-center justify-center rounded-[10px] border border-white/60 bg-white/74 text-text-muted shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_12px_28px_-22px_rgba(16,24,22,0.28)] transition group-hover/card:-translate-y-0.5 group-hover/card:border-brand-500/20 group-hover/card:text-primary dark:border-white/8 dark:bg-white/5">
+              <div className="flex size-10 items-center justify-center rounded-lg border border-border bg-surface-2 text-text-muted shadow-[var(--shadow-soft)] transition group-hover/card:-translate-y-0.5 group-hover/card:border-brand-500/25 group-hover/card:text-primary">
                 <span className="material-symbols-outlined text-[20px] transition group-hover/card:scale-110">{icon}</span>
               </div>
             )}
@@ -62,8 +62,8 @@ Card.Section = function CardSection({ children, className, ...props }) {
   return (
     <div
       className={cn(
-        "rounded-[14px] border border-black/5 bg-black/[0.025] p-4 dark:border-white/[0.06] dark:bg-white/[0.03]",
-        "shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]",
+        "rounded-lg border border-border bg-surface-2 p-4",
+        "shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]",
         className
       )}
       {...props}

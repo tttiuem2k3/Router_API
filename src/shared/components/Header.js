@@ -6,7 +6,6 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import ProviderIcon from "@/shared/components/ProviderIcon";
 import HeaderMenu from "@/shared/components/HeaderMenu";
-import ThemeToggle from "@/shared/components/ThemeToggle";
 import { useHeaderSearchStore } from "@/store/headerSearchStore";
 import { OAUTH_PROVIDERS, APIKEY_PROVIDERS } from "@/shared/constants/config";
 import { MEDIA_PROVIDER_KINDS, AI_PROVIDERS } from "@/shared/constants/providers";
@@ -194,12 +193,12 @@ export default function Header({ onMenuClick, showMenuButton = true }) {
   };
 
   return (
-    <header className="topbar-glow sticky top-0 z-20 flex shrink-0 items-center justify-between gap-3 border-b border-border bg-white/78 px-4 pb-3 pt-3 shadow-[0_18px_54px_-42px_rgba(15,23,42,0.42)] backdrop-blur-2xl dark:bg-slate-950/58 lg:px-8">
+    <header className="topbar-glow sticky top-0 z-20 flex shrink-0 items-center justify-between gap-3 border-b border-border bg-sidebar px-4 pb-3 pt-3 lg:px-8">
       <div className="flex shrink-0 items-center gap-3 lg:hidden">
         {showMenuButton && (
           <button
             onClick={onMenuClick}
-            className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-black/5 bg-white/70 text-text-main shadow-[0_8px_18px_-14px_rgba(16,24,22,0.35)] transition hover:border-brand-500/25 hover:text-primary dark:border-white/8 dark:bg-white/[0.05]"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface text-text-main transition hover:border-brand-500/25 hover:text-primary"
           >
             <span className="material-symbols-outlined">menu</span>
           </button>
@@ -246,10 +245,10 @@ export default function Header({ onMenuClick, showMenuButton = true }) {
             ))}
           </div>
         ) : title ? (
-          <div className="gradient-ring group rounded-[16px] border border-border bg-white/72 px-3 py-2 shadow-[var(--shadow-soft)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:border-brand-500/25 hover:bg-white/88 dark:bg-slate-900/42 dark:hover:bg-slate-900/62">
+          <div className="group px-0 py-0">
             <div className="flex items-center gap-2">
               {icon && (
-                <span className="material-symbols-outlined text-primary text-xl transition group-hover:scale-110 lg:text-2xl">
+                <span className="material-symbols-outlined text-primary text-xl lg:text-2xl">
                   {icon}
                 </span>
               )}
@@ -268,7 +267,6 @@ export default function Header({ onMenuClick, showMenuButton = true }) {
 
       <div className="flex shrink-0 items-center gap-1">
         <HeaderSearch />
-        <ThemeToggle />
         <HeaderMenu onLogout={handleLogout} />
       </div>
     </header>
@@ -293,7 +291,7 @@ function HeaderSearch() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={placeholder}
-        className="h-10 w-full rounded-[10px] border border-black/5 bg-white/72 pl-8 pr-8 text-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.82),0_10px_30px_-24px_rgba(16,24,22,0.32)] transition-colors focus:border-primary/35 focus:outline-none focus:ring-2 focus:ring-brand-500/20 dark:border-white/8 dark:bg-white/[0.045]"
+        className="h-10 w-full rounded-lg border border-border bg-surface pl-8 pr-8 text-sm transition-colors focus:border-primary/35 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
       />
       {query && (
         <button

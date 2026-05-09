@@ -112,14 +112,14 @@ export default function HeaderMenu({ onLogout }) {
       <div className="relative" ref={menuRef}>
         <button
           onClick={() => setIsOpen((v) => !v)}
-          className="gradient-ring flex items-center justify-center rounded-xl border border-border bg-surface/70 p-2 text-text-muted shadow-soft backdrop-blur transition-all hover:-translate-y-px hover:text-primary hover:shadow-warm"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-text-muted shadow-[var(--shadow-soft)] transition-colors hover:border-brand-500/25 hover:text-primary"
           title="Menu"
         >
           <span className="material-symbols-outlined">grid_view</span>
         </button>
 
         {isOpen && (
-          <div className="menu-pop absolute right-0 top-full mt-2 w-60 overflow-hidden rounded-xl border border-black/10 bg-surface/92 py-1 shadow-2xl backdrop-blur-2xl dark:border-white/10 dark:bg-surface/88">
+          <div className="menu-pop absolute right-0 top-full mt-2 w-60 overflow-hidden rounded-lg border border-border bg-surface py-1 shadow-[var(--shadow-elevated)]">
             <MenuItem
               icon="history"
               label="Change Log"

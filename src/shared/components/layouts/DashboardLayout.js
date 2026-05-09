@@ -49,13 +49,7 @@ export default function DashboardLayout({ children }) {
   return (
     <div className="flex h-screen w-full overflow-hidden bg-bg text-text-main">
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="dashboard-ambient absolute inset-0 opacity-95" />
-        <div className="aurora-blob absolute left-[-8rem] top-[-5rem] h-[26rem] w-[26rem] rounded-full bg-brand-500/14 blur-3xl" />
-        <div className="aurora-blob absolute right-[-7rem] top-12 h-[28rem] w-[28rem] rounded-full bg-[color:var(--color-accent-cyan)]/14 blur-3xl" />
-        <div className="aurora-blob absolute bottom-[-10rem] left-1/3 h-[22rem] w-[22rem] rounded-full bg-[color:var(--color-accent-violet)]/14 blur-3xl" />
-        <div className="cursor-spotlight absolute inset-0" />
-        <div className="scanline-overlay absolute inset-0" />
-        <div className="grain-overlay absolute inset-0" />
+        <div className="dashboard-ambient absolute inset-0 opacity-100" />
       </div>
       <div className="fixed top-4 right-4 z-[80] flex w-[min(92vw,380px)] flex-col gap-2">
         {notifications.map((n) => {
@@ -95,7 +89,7 @@ export default function DashboardLayout({ children }) {
       )}
 
       {/* Sidebar - Desktop */}
-      <div className="hidden lg:flex">
+      <div className="relative z-30 hidden lg:flex">
         <Sidebar />
       </div>
 
@@ -110,10 +104,9 @@ export default function DashboardLayout({ children }) {
 
       {/* Main content */}
       <main className="relative isolate flex h-full min-w-0 flex-1 flex-col transition-colors duration-300">
-        <div className="landing-grid absolute inset-0 pointer-events-none -z-10 opacity-[0.055] dark:opacity-[0.035]" aria-hidden="true" />
         <Header key={pathname} onMenuClick={() => setSidebarOpen(true)} />
-        <div className={`flex-1 overflow-y-auto custom-scrollbar ${pathname === "/dashboard/basic-chat" ? "" : "px-4 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-6"} ${pathname === "/dashboard/basic-chat" ? "flex flex-col overflow-hidden" : ""}`}>
-          <div className={`${pathname === "/dashboard/basic-chat" ? "flex h-full w-full flex-1 flex-col page-rise" : "dashboard-page page-rise mx-auto w-full max-w-[1380px]"}`}>{children}</div>
+        <div className={`flex-1 overflow-y-auto custom-scrollbar ${pathname === "/dashboard/basic-chat" ? "" : "px-4 py-5 sm:px-6 lg:px-10"} ${pathname === "/dashboard/basic-chat" ? "flex flex-col overflow-hidden" : ""}`}>
+          <div className={`${pathname === "/dashboard/basic-chat" ? "flex h-full w-full flex-1 flex-col page-rise" : "dashboard-page page-rise mx-auto w-full max-w-[1320px]"}`}>{children}</div>
         </div>
       </main>
     </div>

@@ -36,7 +36,7 @@ export default function Toggle({
         disabled={disabled}
         onClick={handleClick}
         className={cn(
-          "relative inline-flex shrink-0 cursor-pointer rounded-full border border-black/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:border-white/8",
+          "relative inline-flex shrink-0 cursor-pointer items-center rounded-full border border-black/5 p-0.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:border-border",
           "transition-colors duration-200 ease-in-out",
           "focus:outline-none focus:ring-2 focus:ring-brand-500/30",
           checked ? "bg-brand-500" : "bg-surface-3",
@@ -48,9 +48,8 @@ export default function Toggle({
           className={cn(
             "pointer-events-none inline-block rounded-full bg-white shadow-[0_1px_2px_rgba(0,0,0,0.16)]",
             "transform transition duration-200 ease-in-out",
-            checked ? sizes[size].translate : "translate-x-0.5",
+            checked ? sizes[size].translate : "translate-x-0",
             sizes[size].thumb,
-            "mt-0.5"
           )}
         />
       </button>

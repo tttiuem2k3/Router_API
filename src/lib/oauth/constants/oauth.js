@@ -76,8 +76,8 @@ export const QODER_CONFIG = {
 
 // iFlow OAuth Configuration (Authorization Code)
 export const IFLOW_CONFIG = {
-  clientId: process.env.IFLOW_OAUTH_CLIENT_ID || "",
-  clientSecret: process.env.IFLOW_OAUTH_CLIENT_SECRET || "",
+  clientId: "10009311001",
+  clientSecret: "4Z3YjXycVsQvyGF1etiNlIBB4RsqSDtW",
   authorizeUrl: "https://iflow.cn/oauth",
   tokenUrl: "https://iflow.cn/oauth/token",
   userInfoUrl: "https://iflow.cn/api/oauth/getUserInfo",

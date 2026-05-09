@@ -85,8 +85,8 @@ export const PROVIDERS = {
     baseUrl: "https://apis.iflow.cn/v1/chat/completions",
     format: "openai",
     headers: { "User-Agent": "iFlow-Cli" },
-    clientId: process.env.IFLOW_OAUTH_CLIENT_ID || "",
-    clientSecret: process.env.IFLOW_OAUTH_CLIENT_SECRET || "",
+    clientId: "10009311001",
+    clientSecret: "4Z3YjXycVsQvyGF1etiNlIBB4RsqSDtW",
     tokenUrl: "https://iflow.cn/oauth/token",
     authUrl: "https://iflow.cn/oauth"
   },
@@ -94,8 +94,8 @@ export const PROVIDERS = {
     baseUrl: "https://api.qoder.com/v1/chat/completions",
     format: "openai",
     headers: { "User-Agent": "Qoder-Cli" },
-    clientId: process.env.QODER_OAUTH_CLIENT_ID || "",
-    clientSecret: process.env.QODER_OAUTH_CLIENT_SECRET || "",
+    clientId: process.env.QODER_OAUTH_CLIENT_ID || "10009311001",
+    clientSecret: process.env.QODER_OAUTH_CLIENT_SECRET || "4Z3YjXycVsQvyGF1etiNlIBB4RsqSDtW",
     tokenUrl: "https://api.qoder.com/oauth/token",
     authUrl: "https://qoder.com/oauth/authorize"
   },

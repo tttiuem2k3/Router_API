@@ -40,16 +40,13 @@ function NavLink({ href, label, icon, active, onClick, compact = false }) {
       href={href}
       onClick={onClick}
       className={cn(
-        "nav-link-pro group relative flex items-center gap-3 rounded-[14px] transition-all",
+        "nav-link-pro group relative flex items-center gap-3 rounded-lg border transition-colors",
         compact ? "px-4 py-2" : "px-3 py-2.5",
         active
-          ? "bg-gradient-to-r from-brand-500/18 via-brand-500/10 to-transparent text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]"
-          : "text-text-muted hover:bg-white/50 hover:text-text-main dark:hover:bg-white/[0.04]"
+          ? "border-brand-500/20 bg-brand-500/12 text-primary shadow-[inset_0_0_0_1px_rgba(255,255,255,0.02)]"
+          : "border-transparent text-text-muted hover:border-border hover:bg-surface-2 hover:text-text-main dark:hover:bg-white/[0.04]"
       )}
     >
-      {active && (
-        <span className="absolute bottom-2 left-0 top-2 w-1 rounded-r-full bg-brand-500" />
-      )}
       <span
         className={cn(
           "material-symbols-outlined text-[18px] transition-colors",
@@ -71,6 +68,20 @@ NavLink.propTypes = {
   onClick: PropTypes.func,
   compact: PropTypes.bool,
 };
+
+function SidebarLogo() {
+  return (
+    <span className="sidebar-logo star-logo" aria-hidden="true">
+      <span className="star-logo__ray star-logo__ray--v" />
+      <span className="star-logo__ray star-logo__ray--h" />
+      <span className="star-logo__core" />
+      <span className="star-logo__spark star-logo__spark--one" />
+      <span className="star-logo__spark star-logo__spark--two" />
+      <span className="star-logo__spark star-logo__spark--three" />
+      <span className="star-logo__spark star-logo__spark--four" />
+    </span>
+  );
+}
 
 export default function Sidebar({ onClose }) {
   const pathname = usePathname();
@@ -164,53 +175,57 @@ export default function Sidebar({ onClose }) {
 
   return (
     <>
-      <aside className="surface-noise flex min-h-full w-[18.5rem] flex-col border-r border-border bg-white/74 shadow-[24px_0_70px_-38px_rgba(15,23,42,0.38)] backdrop-blur-2xl transition-colors duration-300 dark:bg-slate-950/70">
-        <div className="flex items-center gap-2 px-6 pb-2 pt-5">
-          <div className="h-3 w-3 rounded-full bg-[#FF5F56]" />
-          <div className="h-3 w-3 rounded-full bg-[#FFBD2E]" />
-          <div className="h-3 w-3 rounded-full bg-[#27C93F]" />
+      <aside
+        className="app-sidebar flex min-h-full w-[18rem] flex-col overflow-hidden transition-colors duration-300"
+        style={{
+          borderRight: "1px solid var(--color-border)",
+          boxShadow: "2px 0 0 var(--color-border), 18px 0 34px -32px rgba(0,0,0,0.72)",
+        }}
+      >
+        <div className="relative z-10 flex items-center gap-2 px-6 pb-2 pt-5">
+          <div style={{ width: 12, height: 12, borderRadius: 999, backgroundColor: "#FF5F56" }} />
+          <div style={{ width: 12, height: 12, borderRadius: 999, backgroundColor: "#FFBD2E" }} />
+          <div style={{ width: 12, height: 12, borderRadius: 999, backgroundColor: "#27C93F" }} />
         </div>
 
-        <div className="flex flex-col gap-3 px-5 py-4">
-          <Link href="/dashboard" className="dashboard-panel group flex items-center gap-3 rounded-[18px] px-4 py-3">
-            <div className="brand-orb star-logo flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/75 bg-[linear-gradient(145deg,rgba(125,211,252,0.9),rgba(56,189,248,0.82)_42%,rgba(129,140,248,0.78))] text-white shadow-[0_18px_36px_-18px_rgba(14,165,233,0.86),inset_0_1px_0_rgba(255,255,255,0.9)] transition group-hover:scale-105 dark:border-cyan-200/24 dark:bg-[linear-gradient(145deg,rgba(34,211,238,0.48),rgba(37,99,235,0.42)_48%,rgba(124,58,237,0.44))]" aria-hidden="true">
-              <span className="star-logo__core" />
-              <span className="star-logo__ray star-logo__ray--v" />
-              <span className="star-logo__ray star-logo__ray--h" />
-              <span className="star-logo__spark star-logo__spark--one" />
-              <span className="star-logo__spark star-logo__spark--two" />
-            </div>
+        <div className="relative z-10 flex flex-col gap-3 px-5 py-4">
+          <Link
+            href="/dashboard"
+            onClick={onClose}
+            className="sidebar-brand group flex min-h-[4.75rem] items-center gap-3 rounded-lg border px-3 py-3"
+          >
+            <SidebarLogo />
             <div className="min-w-0 flex-1">
-              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-text-muted/70">
+              <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-text-muted/70">
                 Control Center
               </p>
               <h1 className="truncate text-base font-semibold tracking-tight text-text-main">
                 {APP_CONFIG.name}
               </h1>
               <span className="text-xs text-text-muted" data-i18n-skip="true">
-                Phiên bản {APP_CONFIG.version}
+                v{APP_CONFIG.version}
               </span>
             </div>
           </Link>
 
           {updateInfo && (
-            <div className="rounded-[16px] border border-green-500/15 bg-green-500/8 px-3 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.35)] dark:border-amber-400/15 dark:bg-amber-400/6">
-              <span className="block text-xs font-semibold text-green-700 dark:text-amber-400">
+            <div className="rounded-lg border border-green-500/20 bg-green-500/8 px-3 py-3 dark:border-primary/25 dark:bg-primary/8">
+              <span className="block text-xs font-semibold text-green-700 dark:text-primary">
                 New version available: v{updateInfo.latestVersion}
               </span>
               <div className="mt-2 flex items-center gap-2">
                 <button
                   onClick={() => setShowUpdateModal(true)}
-                  className="cursor-pointer rounded-[10px] bg-green-600 px-2.5 py-1.5 text-[11px] font-semibold text-white transition-colors hover:bg-green-700 dark:bg-amber-500 dark:hover:bg-amber-600"
+                  className="cursor-pointer rounded-lg bg-primary px-2.5 py-1.5 text-[11px] font-semibold text-white transition-colors hover:bg-primary-hover dark:text-black"
                 >
                   Update now
                 </button>
                 <button
                   onClick={() => copy(INSTALL_CMD)}
                   title="Copy install command"
-                  className="min-w-0 flex-1 rounded-[10px] border border-black/5 bg-white/50 px-2 py-1.5 text-left transition hover:opacity-80 dark:border-white/6 dark:bg-white/[0.03]"
+                  className="min-w-0 flex-1 rounded-lg border border-border bg-surface px-2 py-1.5 text-left transition hover:opacity-80"
                 >
-                  <code className="block truncate font-mono text-[10px] text-green-700/80 dark:text-amber-400/70">
+                  <code className="block truncate font-mono text-[10px] text-primary/80">
                     {copied ? "Copied!" : INSTALL_CMD}
                   </code>
                 </button>
@@ -219,7 +234,7 @@ export default function Sidebar({ onClose }) {
           )}
         </div>
 
-        <nav className="custom-scrollbar flex-1 space-y-1 overflow-y-auto px-4 py-3">
+        <nav className="custom-scrollbar relative z-10 flex-1 space-y-1 overflow-y-auto px-4 py-3">
           {navItems.map((item) => (
             <NavLink
               key={item.href}
@@ -232,17 +247,17 @@ export default function Sidebar({ onClose }) {
           ))}
 
           <div className="mt-3 space-y-1 pt-3">
-            <p className="mb-2 px-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-text-muted/55">
+            <p className="mb-2 px-4 text-[11px] font-medium uppercase tracking-[0.12em] text-text-muted/55">
               System
             </p>
 
             <button
               onClick={() => setMediaOpen((v) => !v)}
               className={cn(
-                "nav-link-pro group relative flex w-full items-center gap-3 overflow-hidden rounded-[14px] px-3 py-2.5 transition-all",
+                "nav-link-pro group relative flex w-full items-center gap-3 overflow-hidden rounded-lg border px-3 py-2.5 transition-colors",
                 pathname.startsWith("/dashboard/media-providers")
-                  ? "bg-gradient-to-r from-brand-500/18 via-brand-500/10 to-transparent text-primary"
-                  : "text-text-muted hover:bg-white/50 hover:text-text-main dark:hover:bg-white/[0.04]"
+                  ? "border-brand-500/20 bg-brand-500/12 text-primary shadow-[inset_0_0_0_1px_rgba(255,255,255,0.02)]"
+                  : "border-transparent text-text-muted hover:border-border hover:bg-surface-2 hover:text-text-main dark:hover:bg-white/[0.04]"
               )}
             >
               <span className="material-symbols-outlined text-[18px]">perm_media</span>
@@ -314,7 +329,7 @@ export default function Sidebar({ onClose }) {
           </div>
         </nav>
 
-        <div className="border-t border-white/50 p-4 dark:border-white/6">
+        <div className="relative z-10 border-t border-border p-4 dark:border-white/6">
           <Button
             variant="outline"
             fullWidth
@@ -424,7 +439,7 @@ function UpdateProgress({ status, latestVersion, installCmd, copied, onCopy }) {
             "flex h-11 w-11 items-center justify-center rounded-full",
             done && success ? "bg-green-500/20 text-green-400" :
               done && !success ? "bg-red-500/20 text-red-400" :
-                "bg-blue-500/20 text-blue-400"
+                "bg-primary/20 text-primary"
           )}
         >
           <span
@@ -457,7 +472,7 @@ function UpdateProgress({ status, latestVersion, installCmd, copied, onCopy }) {
               className={cn(
                 "material-symbols-outlined shrink-0 text-[18px]",
                 s.state === "done" && "text-green-400",
-                s.state === "active" && "animate-pulse text-blue-400",
+                s.state === "active" && "animate-pulse text-primary",
                 s.state === "error" && "text-red-400",
                 s.state === "pending" && "text-white/30"
               )}
