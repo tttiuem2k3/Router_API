@@ -49,6 +49,8 @@ source/*
 .cursor/*
 docs/*
 !docs/ARCHITECTURE.md
+!docs/images/
+!docs/images/readme_overview.svg
 test/*
 bin/*
 open-sse/test/*
