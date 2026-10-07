@@ -2,7 +2,10 @@
 
 > Self-hosted dashboard and local AI gateway for routing requests across multiple providers through an **OpenAI-compatible API**.
 
-<p align="center">\n  <img src="./images/readme_overview.svg" width="100%" alt="AI Router Dashboard &amp; OpenAI-Compatible Gateway overview">\n</p>\n
+<p align="center">
+  <img src="./images/readme_overview.svg" width="100%" alt="AI Router Dashboard &amp; OpenAI-Compatible Gateway overview">
+</p>
+
 ---
 
 ## 📌 Introduction
